@@ -54,6 +54,8 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	int result = printf("test de c : %c test de s : %s\n", 'o', "oui");
-	printf("count : %d\n", result);		
+	int	result;
+
+	printf("test de c : %c test de s : %s\n", 'o', "oui");
+	printf("count : %d\n", result);
 }
