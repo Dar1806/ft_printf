@@ -57,5 +57,5 @@ int	main(void)
 	int	result;
 
 	printf("test de c : %c test de s : %s\n", 'o', "oui");
-	printf("count : %d\n", result);
+	printf("cout : %d\n", result);
 }
