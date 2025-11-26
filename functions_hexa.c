@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_putnbrhexa_low(unsigned long n, int count)
+int	ft_putnbrhexa_low(long unsigned n, int count)
 {
 	if (n >= 16)
 		count += ft_putnbrhexa_low(n / 16, count);
@@ -20,12 +20,13 @@ int	ft_putnbrhexa_low(unsigned long n, int count)
 	count++;
 }
 
-int	ft_voidhexa(const void *adress, int count)
+int	ft_voidhexa(void *adress, int count)
 {
 	int	i;
 
 	i = 0;
 	if (adress == 0)
 		write(1, "(nil)", 5);
-	return (write(1, "0x", 2) + ft_putnbrhexa_low(adress));
+	return (write(1, "0x", 2)
+		+ ft_putnbrhexa_low((unsigned long)adress, count));
 }

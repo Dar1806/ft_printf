@@ -61,6 +61,7 @@ int	main(void)
 	int	result;
 
 	result = 0;
-	result = ft_printf("test de c : %c test de s : %s\n", 'o', "oui");
+	result = ft_printf("c: %c\ns: %s\np: %p\nx: %x\n",
+			'o', "oui", "123", "123456abcedf");
 	printf("count : %d\n", result);
 }

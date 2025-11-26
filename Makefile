@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = 
+SRCS = ft_print.c functions.c functions_hexa.c
 
 CC = cc 
 RM = rm -f
