@@ -10,11 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_print.c functions.c functions_hexa.c
+SRCS = ft_printf.c functions.c functions_hexa.c
 
 CC = cc 
 RM = rm -f
-CFLAGS = -Wall _wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 OBJS = $(SRCS:.c=.o)

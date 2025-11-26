@@ -15,6 +15,7 @@
 int	ft_putchar(const char c, int count)
 {
 	write(1, &c, 1);
+	count++;
 	return (count);
 }
 
@@ -24,21 +25,45 @@ int	ft_putstr(const char *str, int count)
 
 	i = 0;
 	while (str[i])
+	{
 		write(1, &str[i++], 1);
+		count++;
+	}
 	return (count);
 }
-int	ft_putnbr(unsigned long int nbr, int count)
+
+int	ft_putnbr(int nbr, int count)
 {
+	if (nbr == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return (0) ;	
+	}
 	if (nbr < 0)
 	{
 		nbr *= -1;
-		ft_putchar('-', count);
+		count += ft_putchar('-', count);
 	}
 	if (nbr >= 10)
 	{
-		ft_putnbr(nbr / 10, count);
-		ft_putnbr(nbr % 10, count);
+		count += ft_putnbr(nbr / 10, count);
+		count += ft_putnbr(nbr % 10, count);
 	}
 	else
-		ft_putchar(nbr + '0', count);
+		ft_putchar(nbr+ '0', count);
+	count++;
+	return (count);
+}
+
+int ft_unsigned_nbr(unsigned int nbr, int count)
+{
+	if (nbr >= 10)
+	{
+		count += ft_unsigned_nbr(nbr / 10, count);
+		count += ft_unsigned_nbr(nbr % 10, count);
+	}
+	else
+		ft_putchar(nbr+ '0', count);
+	count++;
+	return (count);
 }

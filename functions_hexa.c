@@ -18,15 +18,22 @@ int	ft_putnbrhexa_low(long unsigned n, int count)
 		count += ft_putnbrhexa_low(n / 16, count);
 	ft_putchar("0123456789abcdef"[n % 16], 1);
 	count++;
+	return (count);
+}
+
+int	ft_putnbrhexa_up(long unsigned n, int count)
+{
+	if (n >= 16)
+		count += ft_putnbrhexa_up(n / 16, count);
+	ft_putchar("0123456789ABCDEF"[n % 16], 1);
+	count++;
+	return (count);
 }
 
 int	ft_voidhexa(void *adress, int count)
 {
-	int	i;
-
-	i = 0;
 	if (adress == 0)
-		write(1, "(nil)", 5);
+		count += write(1, "(nil)", 5);
 	return (write(1, "0x", 2)
 		+ ft_putnbrhexa_low((unsigned long)adress, count));
 }
