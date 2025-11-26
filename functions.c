@@ -37,6 +37,7 @@ int	ft_putnbr(long unsigned int nbr, int count)
 	}
 	if (nbr >= 10)
 	{
+		d
 		ft_putnbr(nbr / 10, count);
 		ft_putnbr(nbr % 10, count);
 	}
