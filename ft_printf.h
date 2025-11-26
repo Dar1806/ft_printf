@@ -19,6 +19,8 @@
 
 int		ft_putchar(const char c, int count);
 int		ft_putstr(const char *str, int count);
+int		ft_putnbrhexa_low(unsigned long n, int count);
+int		ft_voidhexa(const void *adress, int count);
 int		check(const char *str, int i, va_list *args);
 
 #endif

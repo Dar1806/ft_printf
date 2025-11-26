@@ -19,8 +19,12 @@ int	check(const char *str, int i, va_list *args)
 	count = 0;
 	if (str[i] == 'c')
 		count += ft_putchar(va_arg(*args, int), count);
-	if (str[i] == 's')
+	else if (str[i] == 's')
 		count += ft_putstr(va_arg(*args, char *), count);
+	else if (str[i] == 'p')
+		count += ft_voidhexa(va_arg(*args, void *), count);
+	else if (str[i] == 'x')
+		count += ft_putnbrhexa_low(va_arg(*args, int), count);
 	return (count);
 }
 
@@ -56,6 +60,7 @@ int	main(void)
 {
 	int	result;
 
-	printf("test de c : %c test de s : %s\n", 'o', "oui");
+	result = 0;
+	result = ft_printf("test de c : %c test de s : %s\n", 'o', "oui");
 	printf("count : %d\n", result);
 }
