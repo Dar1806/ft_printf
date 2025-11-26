@@ -23,6 +23,8 @@ int	check(const char *str, int i, va_list *args)
 		count += ft_putstr(va_arg(*args, char *), count);
 	else if (str[i] == 'p')
 		count += ft_voidhexa(va_arg(*args, void *), count);
+	else if (str[i] == 'd')
+		count += ft_putnbr(va_arg(*args, int), count);
 	else if (str[i] == 'x')
 		count += ft_putnbrhexa_low(va_arg(*args, int), count);
 	return (count);
@@ -61,7 +63,6 @@ int	main(void)
 	int	result;
 
 	result = 0;
-	result = ft_printf("c: %c\ns: %s\np: %p\nx: %x\n",
-			'o', "oui", "123", "123456abcedf");
+	result = ft_printf("c: %c\ns: %s\np: %p\nx: %x\n", 'o', "oui", "123", "123456abcedf");
 	printf("count : %d\n", result);
 }
