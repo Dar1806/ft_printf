@@ -12,18 +12,25 @@
 
 #include "ft_printf.h"
 
-int	ft_putchar(const char c, int count)
+int	ft_putchar(const char c)
 {
+	int	count;
+
+	count = 0;
 	write(1, &c, 1);
 	count++;
 	return (count);
 }
 
-int	ft_putstr(const char *str, int count)
+int	ft_putstr(const char *str)
 {
+	int	count;
 	int	i;
 
 	i = 0;
+	count = 0;
+	if (!str)
+		str = "(null)";
 	while (str[i])
 	{
 		write(1, &str[i++], 1);
@@ -32,38 +39,34 @@ int	ft_putstr(const char *str, int count)
 	return (count);
 }
 
-int	ft_putnbr(int nbr, int count)
+int	ft_putnbr(int nbr)
 {
+	int	count;
+
+	count = 0;
 	if (nbr == -2147483648)
 	{
 		write(1, "-2147483648", 11);
-		return (0) ;	
+		return (11);
 	}
 	if (nbr < 0)
 	{
 		nbr *= -1;
-		count += ft_putchar('-', count);
+		count += ft_putchar('-');
 	}
 	if (nbr >= 10)
-	{
-		count += ft_putnbr(nbr / 10, count);
-		count += ft_putnbr(nbr % 10, count);
-	}
-	else
-		ft_putchar(nbr+ '0', count);
-	count++;
+		count += ft_putnbr(nbr / 10);
+	count += ft_putchar(nbr % 10 + '0');
 	return (count);
 }
 
-int ft_unsigned_nbr(unsigned int nbr, int count)
+int	ft_unsigned_nbr(unsigned int nbr)
 {
+	int	count;
+
+	count = 0;
 	if (nbr >= 10)
-	{
-		count += ft_unsigned_nbr(nbr / 10, count);
-		count += ft_unsigned_nbr(nbr % 10, count);
-	}
-	else
-		ft_putchar(nbr+ '0', count);
-	count++;
+		count += ft_putnbr(nbr / 10);
+	count += ft_putchar(nbr % 10 + '0');
 	return (count);
 }

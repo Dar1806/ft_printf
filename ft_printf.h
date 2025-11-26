@@ -17,13 +17,14 @@
 # include <stdio.h>
 # include <stdarg.h>
 
-int		ft_putchar(const char c, int count);
-int		ft_putstr(const char *str, int count);
-int		ft_voidhexa(void *adress, int count);
-int		ft_putnbr(int nbr, int count);
-int		ft_unsigned_nbr(unsigned int nbr, int count);
+int		ft_printf(const char *str, ...);
+int		ft_putchar(const char c);
+int		ft_putstr(const char *str);
+int		ft_voidhexa(void *adress);
+int		ft_putnbr(int nbr);
+int		ft_unsigned_nbr(unsigned int nbr);
 int		check(const char *str, int i, va_list *args);
-int		ft_putnbrhexa_low(long unsigned n, int count);
-int		ft_putnbrhexa_up(long unsigned n, int count);
+int		ft_putnbrhexa_low(unsigned int n);
+int		ft_putnbrhexa_up(unsigned int n);
 
 #endif

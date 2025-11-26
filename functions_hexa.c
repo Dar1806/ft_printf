@@ -12,28 +12,34 @@
 
 #include "ft_printf.h"
 
-int	ft_putnbrhexa_low(long unsigned n, int count)
+int	ft_putnbrhexa_low(unsigned int n)
 {
+	int	count;
+
+	count = 0;
 	if (n >= 16)
-		count += ft_putnbrhexa_low(n / 16, count);
-	ft_putchar("0123456789abcdef"[n % 16], 1);
-	count++;
+		count += ft_putnbrhexa_low(n / 16);
+	count += ft_putchar("0123456789abcdef"[n % 16]);
 	return (count);
 }
 
-int	ft_putnbrhexa_up(long unsigned n, int count)
+int	ft_putnbrhexa_up(unsigned int n)
 {
+	int	count;
+
+	count = 0;
 	if (n >= 16)
-		count += ft_putnbrhexa_up(n / 16, count);
-	ft_putchar("0123456789ABCDEF"[n % 16], 1);
-	count++;
+		count += ft_putnbrhexa_up(n / 16);
+	count += ft_putchar("0123456789ABCDEF"[n % 16]);
 	return (count);
 }
 
-int	ft_voidhexa(void *adress, int count)
+int	ft_voidhexa(void *adress)
 {
+	unsigned long	value;
+
 	if (adress == 0)
-		count += write(1, "(nil)", 5);
-	return (write(1, "0x", 2)
-		+ ft_putnbrhexa_low((unsigned long)adress, count));
+		return (write(1, "(nil)", 5));
+	value = (unsigned long)adress;
+	return (write(1, "0x", 2) + ft_putnbrhexa_ptr(value));
 }

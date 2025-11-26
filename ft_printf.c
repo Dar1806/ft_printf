@@ -18,21 +18,23 @@ int	check(const char *str, int i, va_list *args)
 
 	count = 0;
 	if (str[i] == 'c')
-		count += ft_putchar(va_arg(*args, int), count);
+		count += ft_putchar(va_arg(*args, int));
 	else if (str[i] == 's')
-		count += ft_putstr(va_arg(*args, char *), count);
+		count += ft_putstr(va_arg(*args, char *));
 	else if (str[i] == 'p')
-		count += ft_voidhexa(va_arg(*args, void *), count);
+		count += ft_voidhexa(va_arg(*args, void *));
 	else if (str[i] == 'd')
-		count += ft_putnbr(va_arg(*args, int), count);
+		count += ft_putnbr(va_arg(*args, int));
 	else if (str[i] == 'i')
-		count += ft_putnbr(va_arg(*args, int), count);
+		count += ft_putnbr(va_arg(*args, int));
 	else if (str[i] == 'u')
-		count += ft_unsigned_nbr(va_arg(*args, unsigned int), count);
+		count += ft_unsigned_nbr(va_arg(*args, unsigned int));
 	else if (str[i] == 'x')
-		count += ft_putnbrhexa_low(va_arg(*args, int), count);
+		count += ft_putnbrhexa_low(va_arg(*args, int));
 	else if (str[i] == 'X')
-		count += ft_putnbrhexa_up(va_arg(*args, int), count);
+		count += ft_putnbrhexa_up(va_arg(*args, int));
+	else if (str[i] == '%')
+		count += ft_putchar('%');
 	return (count);
 }
 
@@ -53,11 +55,9 @@ int	ft_printf(const char *str, ...)
 		{
 			i++;
 			count += check(str, i, &args);
-			i++;
-			continue ;
 		}
-		write(1, &str[i], 1);
-		count++;
+		else
+			count += ft_putchar(str[i]);
 		i++;
 	}
 	va_end(args);
@@ -69,10 +69,8 @@ int	main(void)
 	int	result;
 
 	result = 0;
-	result = ft_printf("caractere : %c\nstring : %s\npointeur : %p\n
-	decimal : %d\nentier : %i\nunsigned entier : %u\nnombre en hexa low: %x\n
-	nombre en hexa up: %X\n", 'o', "oui",
-	"pointeur", -1200, -1200, -3224123, 123, 123);
+	result = ft_printf("%c - %s - %p %d - %i - %u - %x %X %%",
+	'c', "", (void *)-1, 20, -20, -1, -1, 200000000);
 	printf("count : %d\n", result);
 }
 */
