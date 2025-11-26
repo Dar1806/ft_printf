@@ -63,14 +63,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (count);
 }
-/*
-int	main(void)
-{
-	int	result;
-
-	result = 0;
-	result = ft_printf("%c - %s - %p %d - %i - %u - %x %X %%",
-	'c', "", (void *)-1, 20, -20, -1, -1, 200000000);
-	printf("count : %d\n", result);
-}
-*/
