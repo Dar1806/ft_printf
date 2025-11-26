@@ -26,6 +26,6 @@ int		ft_unsigned_nbr(unsigned int nbr);
 int		check(const char *str, int i, va_list *args);
 int		ft_putnbrhexa_low(unsigned int n);
 int		ft_putnbrhexa_up(unsigned int n);
-int		ft_putnbrhexa_low_ul(unsigned long n);
+int		ft_putnbrhexa_low_long(unsigned long n);
 
 #endif
