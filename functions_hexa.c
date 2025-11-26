@@ -41,5 +41,5 @@ int	ft_voidhexa(void *adress)
 	if (adress == 0)
 		return (write(1, "(nil)", 5));
 	value = (unsigned long)adress;
-	return (write(1, "0x", 2) + ft_putnbrhexa_ptr(value));
+	return (write(1, "0x", 2) + ft_putnbrhexa_low(value));
 }
