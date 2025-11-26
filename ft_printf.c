@@ -63,6 +63,6 @@ int	main(void)
 	int	result;
 
 	result = 0;
-	result = ft_printf("c: %c\ns: %s\np: %p\nx: %x\n", 'o', "oui", "123", "123456abcedf");
+	result = ft_printf("c: %c\ns: %s\np: %p\nd: %d\nx: %x\n", 'o', "oui", "123", 1200, 1334238);
 	printf("count : %d\n", result);
 }

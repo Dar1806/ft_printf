@@ -27,8 +27,7 @@ int	ft_putstr(const char *str, int count)
 		write(1, &str[i++], 1);
 	return (count);
 }
-
-int	ft_putnbr(long unsigned int nbr, int count)
+int	ft_putnbr(unsigned long int nbr, int count)
 {
 	if (nbr < 0)
 	{
@@ -37,7 +36,6 @@ int	ft_putnbr(long unsigned int nbr, int count)
 	}
 	if (nbr >= 10)
 	{
-		d
 		ft_putnbr(nbr / 10, count);
 		ft_putnbr(nbr % 10, count);
 	}
