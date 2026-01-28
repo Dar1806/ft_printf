@@ -1,3 +1,4 @@
+This project has been created as part of the 42 curriculum by nmeunier.
 # ft_printf
 
 A custom implementation of the standard C `printf` function. This project provides a lightweight library that replicates the core functionality of the standard library's printf, supporting various format specifiers and output formatting.
